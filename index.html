@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Planificador de comidas</title>
+		<link rel="stylesheet" type="text/css" href="estilo.css">	<meta charset="utf-8">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet"> 
+	</head>
+	<body>
+
+		<div class="page_container">
+			<div class="data_base">
+				<div>
+					<h4 class="data_base__title">-----  Productos  -----</h4>
+					<div class="data_base__list product">
+						<div class="data_base__element product"> <!--maquetarlo con GRID-->
+							<div class="data_base__element_icon"><img class="button" src="img/icon-png24/bx-double-dots-vertical.png"></div>
+							<div class="data_base_element_name">Arroz<img class="button" src="img/icon-png24/bx-x.png"></div>
+							<div class="data_base_element_price">2.08</div>
+							<div class="data_base_element_qty">1 Kg</div>
+						</div>
+					</div>
+					<div class="data_base__add_element_btn product"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>
+				</div>
+				<div>
+					<h4 class="data_base__title">-----  Recetas  -----</h4>
+					<div class="data_base__list recipe">
+						<div class="data_base__element recipe"> <!--maquetarlo con GRID-->
+							<div class="data_base__element_icon"><img class="button" src="img/icon-png24/bx-double-dots-vertical.png"></div>
+							<div class="data_base_element_name">Arroz<img class="button" src="img/icon-png24/bx-x.png"></div>
+							<div class="data_base_element_price">2.08</div>
+							<div class="data_base_element_qty">1 Kg</div>
+						</div>
+					</div>
+					<div class="data_base__add_element_btn recipe"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>
+				</div>
+			</div>
+			<div class="calendar_container">
+				<div class="calendar__week_list">
+					<div class="calendar__week">
+						<div class="calendar__day calendar_observations">
+							<div id="day_label">Observaciones</div>
+							<div class="calendar__week_requirement">Arroz</div>
+							<div class="calendar__week_total_price">50e</div>
+						</div>
+						<div class="calendar__day calendar_monday">
+							<div id="day_label">Lunes</div>
+							<div class="calendar__meal_container">
+								<div class="calendar__meal_pack">
+									<div class="calendar_meal_name">prueba<img class="button expand_meal" src="img/icon-png24/bx-expand-alt.png"></div>
+									<div class="calendar_meal_ingredients"></div>
+								</div>
+							</div>
+							<div class="calendar__add_meal_btn"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>
+						</div>
+						<div class="calendar__day calendar_tuesday">
+							<div id="day_label">Martes</div>
+							<div class="calendar__meal_container">
+								<div class="calendar__meal_pack">
+									<div class="calendar_meal_name">prueba<img class="button expand_meal" src="img/icon-png24/bx-expand-alt.png"></div>
+									<div class="calendar_meal_ingredients"></div>
+								</div>
+							</div>
+							<div class="calendar__add_meal_btn"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>
+						</div>
+						<div class="calendar__day calendar_wednesday">
+							<div id="day_label">Miercoles</div>
+							<div class="calendar__meal_container">
+								<div class="calendar__meal_pack">
+									<div class="calendar_meal_name">prueba<img class="button expand_meal" src="img/icon-png24/bx-expand-alt.png"></div>
+									<div class="calendar_meal_ingredients"></div>
+								</div>
+							</div>
+							<div class="calendar__add_meal_btn"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>
+						</div>
+						<div class="calendar__day calendar_thursday">
+							<div id="day_label">Jueves</div>
+							<div class="calendar__meal_container">
+								<div class="calendar__meal_pack">
+									<div class="calendar_meal_name">prueba<img class="button expand_meal" src="img/icon-png24/bx-expand-alt.png"></div>
+									<div class="calendar_meal_ingredients"></div>
+								</div>
+							</div>
+							<div class="calendar__add_meal_btn"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>
+						</div>
+						<div class="calendar__day calendar_friday">
+							<div id="day_label">Viernes</div>
+							<div class="calendar__meal_container">
+								<div class="calendar__meal_pack">
+									<div class="calendar_meal_name">prueba<img class="button expand_meal" src="img/icon-png24/bx-expand-alt.png"></div>
+									<div class="calendar_meal_ingredients"></div>
+								</div>
+							</div>
+							<div class="calendar__add_meal_btn"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>
+						</div>
+						<div class="calendar__day calendar_saturday">
+							<div id="day_label">Sabado</div>
+							<div class="calendar__meal_container">
+								<div class="calendar__meal_pack">
+									<div class="calendar_meal_name">prueba<img class="button expand_meal" src="img/icon-png24/bx-expand-alt.png"></div>
+									<div class="calendar_meal_ingredients"></div>
+								</div>
+							</div>
+							<div class="calendar__add_meal_btn"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>
+						</div>
+						<div class="calendar__day calendar_sunday">
+							<div id="day_label">Domingo</div>
+							<div class="calendar__meal_container">
+								<div class="calendar__meal_pack">
+									<div class="calendar_meal_name">prueba<img class="button expand_meal" src="img/icon-png24/bx-expand-alt.png"></div>
+									<div class="calendar_meal_ingredients"></div>
+								</div>
+							</div>
+							<div class="calendar__add_meal_btn"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>
+						</div>
+					</div>
+				</div>
+				<div class="calendar__add_week_btn"><img class="button" src="img/icon-png24/plus-regular-24.png"></div>	
+				<div class="calendar__resume">
+					<!--agregar tabla entera con resumen/analisis-->
+				</div>
+			</div>
+		</div>
+		<div class="db__pdct__modal_background">
+			<div class="db__pdct__modal">
+				<h4 class="db__pdct__modal__title">Agregar Producto a la Base de Datos</h4>
+				<form name = "form_pdct__modal" >
+					<label class="db__pdct__modal__label">Nombre<input type="text" id="db__pdct__modal__input_name"></label>
+					<label class="db__pdct__modal__label">Precio<input type="number" id="db__pdct__modal__input_price"></label> <!--ojo con el punto/coma-->
+					<label class="db__pdct__modal__label">Cantidad<input type="number" id="db__pdct__modal__input_qty"></label> <!--ojo con el punto/coma-->
+				</form>
+				<div class="db__pdct__modal__radio">
+					<input class="db__pdct__modal__radio__input" type="radio" value="kg" name="db__pdct__modal__input_units" id="kg_pdct">
+					<label class="db__pdct__modal__radio__label" for="kg_pdct">Kg</label>
+					<input class="db__pdct__modal__radio__input" type="radio" value="gramos" name="db__pdct__modal__input_units" id="grams_pdct">
+					<label class="db__pdct__modal__radio__label" for="grams_pdct">Gramos</label>
+					<input class="db__pdct__modal__radio__input" type="radio" value="litros" name="db__pdct__modal__input_units" id="liters_pdct">
+					<label class="db__pdct__modal__radio__label" for="liters_pdct">Litros</label>
+					<input class="db__pdct__modal__radio__input" type="radio" value="unidades" name="db__pdct__modal__input_units" id="units_pdct">
+					<label class="db__pdct__modal__radio__label" for="units_pdct">Unidades</label>
+				</div>
+				<button class="db__pdct__modal__add_btn">Agregar</button>
+				<img class="db__pdct__modal__close_btn" src="img/icon-png24/bx-x.png">
+			</div>
+		</div>
+		<div class="db__recipe__modal_background">
+			<div class="db__recipe__modal">
+				<h4 class="db__recipe__modal__title">Agregar Receta a la Base de Datos</h4>
+				<label class="db__recipe__modal__label">Nombre de la Receta<input type="text" id="db__recipe__modal__recipe_name"></label>
+				<div class="db__recipe__modal__label_box">
+					<div class="db__recipe__modal__label_pack_title">
+						<div class="db__recipe__modal__label">Ingredientes</div>
+						<div class="db__recipe__modal__label">Cantidad</div>
+					</div>
+				</div>
+				<form class="form_recipe__modal_ingr" name="form_recipe__modal_ingr">
+						<div class="wrapper">
+							<div class="search-input">
+							  	<input class="input" type="text" id="db__recipe__modal__input_name" placeholder="Buscar Ingrediente">
+							  	<div class="autocom-box">
+									<!-- here list are inserted from javascript -->
+							  	</div>
+							</div>
+						</div>
+				</form>
+                <div>
+                    <label class="db__recipe__modal__label">La Receta rinde:<input type="number" id="db__recipe__modal__input_servings" ></label>
+				    <div class="db__recipe__modal__radio">
+                        <input class="db__recipe__modal__radio__input" type="radio" value="kg" name="db__recipe__modal__input_units" id="kg_recipe">
+                        <label class="db__recipe__modal__radio__label" for="kg_recipe">Kg</label>
+                        <input class="db__recipe__modal__radio__input" type="radio" value="gramos" name="db__recipe__modal__input_units" id="grams_recipe">
+                        <label class="db__recipe__modal__radio__label" for="grams_recipe">Gramos</label>
+                        <input class="db__recipe__modal__radio__input" type="radio" value="litros" name="db__recipe__modal__input_units" id="liters_recipe">
+                        <label class="db__recipe__modal__radio__label" for="liters_recipe">Litros</label>
+                        <input class="db__recipe__modal__radio__input" type="radio" value="unidades" name="db__recipe__modal__input_units" id="units_recipe">
+                        <label class="db__recipe__modal__radio__label" for="units_recipe">Unidades</label>
+				    </div>
+                </div>
+				<button class="db__recipe__modal__add_btn">Agregar</button>
+				<img class="db__recipe__modal__close_btn" src="img/icon-png24/bx-x.png">
+			</div>
+		</div>
+		<div class="db__meal__modal_background">
+			<div class="db__meal__modal">
+				<h4 class="db__meal__modal__title">Agregar Comida a la Base de Datos</h4>
+				<label class="db__meal__modal__label">Nombre de la comida<input type="text" id="db__meal__modal__meal_name"></label>
+				<div class="db__meal__modal__label_box">
+					<div class="db__meal__modal__label_pack_title">
+						<div class="db__meal__modal__label">Comida</div>
+						<div class="db__meal__modal__label">Cantidad</div>
+					</div>
+				</div>
+				<form class="form_meal__modal_ingr" name="form_meal__modal_ingr">
+						<div class="meal_wrapper">
+							<div class="meal_search-input">
+							  	<input class="meal_input" type="text" id="db__meal__modal__input_name" placeholder="Buscar Comida">
+							  	<div class="meal_pdct_autocom-box">
+									<!-- here list are inserted from javascript -->
+							  	</div>
+								<div class="meal_recipe_autocom-box">
+									<!-- here list are inserted from javascript -->
+							  	</div>
+							</div>
+						</div>
+				</form>
+				<button class="db__meal__modal__add_btn">Agregar</button>
+				<img class="db__meal__modal__close_btn" src="img/icon-png24/bx-x.png">
+			</div>
+		</div>
+
+		<script src="codigo.js"></script>
+	
+	</body>
+</html>
+

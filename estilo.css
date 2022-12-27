@@ -1,0 +1,317 @@
+*{
+    font-family: ubuntu;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.page_container{
+    display: flex;
+    flex-direction: row;
+}
+
+.calendar_container {
+    width: 90vw;
+}
+
+.data_base {
+    width: 10vw;
+    height: 97vh;
+    border: 2px solid black;
+    margin: 0px 5px;
+    border-radius: 10px;
+}
+
+.data_base__title{
+    width: fit-content;
+    margin: 10px auto 20px;
+}
+
+.data_base__element{
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr;
+    grid-template-rows: repeat(2, 20px);    
+}
+
+.data_base__element_icon{
+    grid-row: 1 / span 2;
+    margin: auto;
+}
+
+.data_base_element_name{
+    grid-column: 2 / span 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.data_base__add_element_btn{
+    width: fit-content;
+    margin: 20px auto;
+}
+
+
+.calendar__week {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 100px;
+    grid-auto-flow: 1fr;
+    gap: 4px;
+    margin-bottom: 30px;
+}
+
+.calendar__day {
+    position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+#day_label {
+	position: absolute;
+	top: -10px;
+	left: 20px;
+	height: 20px;
+	width: fit-content;
+    padding: 0px 7px;
+	background-color: white;
+	text-align: left;
+    border-radius: 20%;
+}
+ 
+.calendar__week_requirement, .calendar__week_total_price{
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+
+.calendar__meal_container{
+    margin: 15px 10px 0px;
+}
+
+
+.calendar__add_meal_btn{
+    width: fit-content;
+    margin: 10px auto;
+}
+
+.calendar__add_week_btn{
+    width: fit-content;
+    margin: 20px auto;
+}
+
+
+
+.db__pdct__modal_background,
+.db__recipe__modal_background,
+.db__meal__modal_background{
+    position: fixed; /*lo clava en la pantalla*/
+    width: 100%; /*que ocupe toda la pantalla*/
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.911);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    visibility: hidden; 
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+} /*al hacer que el modal se componga del modal_background que ocupa toda la pantalla y el modal hijo 
+que ocupa el 30% del padre, permite que yo pueda hacer que si se clickea el modal background, el modal se cierre
+y sino de otra forma deberia hacer un evento que escuche cuando se toque toda otra cosa que no sea el modal,
+lo cual no es nada practico y consume muchos recursos*/
+
+.modal_active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.db__pdct__modal,
+.db__recipe__modal, 
+.db__meal__modal{
+    position: relative; /*importante poner el position relative, porque el boton de cerrar ventana
+    es position absolute y para que se vea un position absolute el contenedor tiene que ser position relative*/
+    background-color: rgba(245, 245, 220, 0.925);
+    width: auto;
+    min-width: 600px; /*30% del padre, y el padre ocupa tda la pantalla*/
+    height: auto;
+    min-height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: rgb(58,58,58) 1px 1px 5px;
+}
+
+.db__pdct__modal form {
+    position: relative;
+    background-color: inherit;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.db__recipe__modal__label_box, 
+.db__meal__modal__label_box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.db__recipe__modal__label_pack, 
+.db__meal__modal__label_pack{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+.db__recipe__modal__label.title,
+.db__meal__modal__label.title{
+    font-weight: 600;
+    font-size: medium;
+}
+
+
+input{
+    /*margin-left: 20px;*/
+    border-radius: 7px;
+    border: none;
+    outline: none; /*importantisimo esto y es re facil de olvidarselo*/
+    padding: 5px 0px 5px 10px; /*para que el placeholder no quede comido por el borde redondeado*/
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.199);
+}
+
+/* saco los flechitas para el input type = "number" */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.db__pdct__modal__close_btn,
+.db__recipe__modal__close_btn,
+.db__meal__modal__close_btn{
+    position: absolute; /*ver seccion .data_base__modal*/
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+.db__pdct__modal__radio,
+.db__recipe__modal__radio{
+    display: inline-flex; /*no se que onda esto pero es fundamental, tengo que buscar la dif con respecto a inline-block*/
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.db__pdct__modal__radio__input,
+.db__recipe__modal__radio__input{
+    display: none;
+}
+
+.db__pdct__modal__radio__label,
+.db__recipe__modal__radio__label{
+    padding: 5px 10px;
+    background: blanchedalmond;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.db__pdct__modal__radio__label:not(:last-of-type),
+.db__recipe__modal__radio__label:not(:last-of-type){ 
+    /*esto afecta a todos los que NO sean el la utlima etiqueta de este tipo
+    esto es para que la linea que las divide no aparezca en la ultima*/
+    border-right: 1px solid black;
+}
+
+.db__pdct__modal__radio__input:checked + .db__pdct__modal__radio__label, 
+.db__recipe__modal__radio__input:checked + .db__recipe__modal__radio__label{
+    /*este selecciona al label que sibling del input que este checcked, es decir seleccionado/marcado*/
+    background-color: rgb(222, 184, 135);
+}
+
+.db__pdct__modal__add_btn,
+.db__recipe__modal__add_btn,
+.db__meal__modal__add_btn{
+    background-color: rgba(172, 141, 101, 0.616);
+    border-radius: 10px;
+    border-width: 0;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+    padding: 8px 16px;
+    text-align: center;
+}
+
+
+::selection{
+    background: #664AFF;
+    color: #fff;
+}
+
+.search-input.active input,
+.meal_search-input.active input {
+  border-radius: 5px 5px 0 0;
+}
+
+.search-input .autocom-box,
+.meal_search-input .meal_pdct_autocom-box,
+.meal_search-input .meal_recipe_autocom-box{
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.search-input.active .autocom-box,
+.meal_search-input.active .meal_pdct_autocom-box,
+.meal_search-input.active .meal_recipe_autocom-box{
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.autocom-box li,
+.meal_pdct_autocom-box li,
+.meal_recipe_autocom-box li{
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+}
+
+.search-input.active .autocom-box li,
+.meal_search-input.active .meal_pdct_autocom-box li,
+.meal_search-input.active .meal_recipe_autocom-box li{
+  display: block;
+}
+.autocom-box li:hover,
+.meal_pdct_autocom-box li:hover,
+.meal_recipe_autocom-box li:hover{
+  background: #efefef;
+}
+
+
