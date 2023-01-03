@@ -64,13 +64,12 @@ function setAddMealBtnFunction(){
 
 setAddMealBtnFunction();
 
-var db__meal__modal__meal_name = document.querySelector("#db__meal__modal__meal_name");
-var db__meal__modal__ingr_name = document.querySelectorAll(".db__meal__modal__ingr_name");
-
-
 db__meal__modal__close_btn.addEventListener('click', (e)=> {
   db__meal__modal_background.classList.remove('modal_active');
   
+  let db__meal__modal__meal_name = document.querySelector("#db__meal__modal__meal_name");
+  let db__meal__modal__ingr_name = document.querySelectorAll(".db__meal__modal__ingr_name");
+
   //limpio campo
   db__meal__modal__ingr_name.forEach( (e)=>{e.parentNode.remove()} );
   db__meal__modal__meal_name.value = "";
@@ -96,6 +95,19 @@ var data_base__list_pdct = document.querySelector(".data_base__list.product");
 var data_base__list_recipe = document.querySelector(".data_base__list.recipe");
 
 /**************************************************************************************/
+
+class Product{
+  constructor(id, name, price, qty, unit, unitPrice){
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.qty = qty;
+    this.unit = unitPrice;
+  }
+  UpdateUnitPrice(){
+    //to do
+  }
+}
 
 //boton agregar producto a la base de datos
 var dataBase_products = [
@@ -135,19 +147,21 @@ let db__pdct__modal__add_btn = document.querySelector('.db__pdct__modal__add_btn
 let objectToAdd;
 
 db__pdct__modal__add_btn.addEventListener('click', (e)=> {
-  //TODO verificar que esten completos todos los campos
+  //to do: verificar que esten completos todos los campos
 
   let id = new Date().getTime();
 
   //agrego el producto a la base de datos
-  objectToAdd = {
+  
+  objectToAdd = new Product(id, product_name.value, product_price.value, product_qty.value, (getProductUnits().value), (product_price.value/product_qty.value));
+  /*objectToAdd = {
     id: id, 
     name : product_name.value,
     price: product_price.value,
     qty: product_qty.value,
     unit: getProductUnits().value,
     unitPrice: (product_price.value/product_qty.value)
-  };
+  };*/
 
   dataBase_products.push(objectToAdd);
 
@@ -198,7 +212,7 @@ function insertIngrToRecipeModal(element){
         new_item.innerText = recipe_qty;
         (e.target).parentNode.replaceChild(new_item , (e.target).previousElementSibling);
         e.target.remove();
-        //TODO: aca deberia hacer lo mismo que el replaceChild, y cambiarlo por un img que sea una cruz, y que esa cruz borre el elemento cuando sea clikeada
+        //to do: aca deberia hacer lo mismo que el replaceChild, y cambiarlo por un img que sea una cruz, y que esa cruz borre el elemento cuando sea clikeada
       })
     });
   
@@ -261,6 +275,20 @@ inputBox.onkeyup = (e)=>{
 
 //boton agregar receta a la base de datos:
 
+class Recipe{
+  constructor(id, name, ingredients, total_price, servings, unit){
+    this.id = id;
+    this.name = name;
+    this.ingredients = ingredients;
+    this.totalPrice = total_price;
+    this.servings = servings;
+    this.unit = unit;
+  }
+  UpdateTotalPrice(){
+    //to do
+  }
+}
+
 var dataBase_recipes = [
   {
     id: 343848617,
@@ -287,8 +315,6 @@ var dataBase_recipes = [
     unit: "litres"
   }
 ];
-
-//TODO: metodo total_price: este lo voy a hacer que sea un metodo que se calcule al momento de usarlo
 
 /*cosas a tener en cuenta, una receta guarda el puntero a un cierto producto.
 ventaja: si cambia el precio, se puede actualizar los precios de las recetas
@@ -325,14 +351,16 @@ db__recipe__modal__add_btn.addEventListener("click", (e)=> {
 
   let id = new Date().getTime();
 
-  objectToAdd = {
+  objectToAdd = new Recipe(id, db__recipe__modal__recipe_name.value, arrayToAdd, totalPrice, db__recipe__modal__input_servings.value, getRecipeUnits());
+  
+  /*objectToAdd = {
     id: id,
     name: db__recipe__modal__recipe_name.value,
     ingredients: arrayToAdd,
     totalPrice: totalPrice,
     servings: db__recipe__modal__input_servings.value,
     unit: getRecipeUnits()
-  }
+  }*/
 
   arrayToAdd = [];
 
@@ -391,7 +419,7 @@ function insertMealToMealModal(element){
       new_item.innerText = meal_qty;
       (e.target).parentNode.replaceChild(new_item , (e.target).previousElementSibling);
       e.target.remove();
-      //TODO: aca deberia hacer lo mismo que el replaceChild, y cambiarlo por un img que sea una cruz, y que esa cruz borre el elemento cuando sea clikeada
+      //to do: aca deberia hacer lo mismo que el replaceChild, y cambiarlo por un img que sea una cruz, y que esa cruz borre el elemento cuando sea clikeada
     })
   });
 
@@ -450,15 +478,37 @@ meal_inputBox.onkeyup = (e)=>{
 /**************************************************************************************/
 
 
+function setExpandMealBtnFunction(){
+  let calendar__expand_meal_btn = document.querySelectorAll('.button expand_meal');
+  calendar__expand_meal_btn.forEach(element => {
+    element.addEventListener('click', (e)=> {
+      element.nextElementSibling.classList.add('.active');
+      //to do: esto funciona?
+    });
+  })
+}
+
+
 //agregar comida al calendario
 
 let db__meal__modal__add_btn = document.querySelector(".db__meal__modal__add_btn");
 
 db__meal__modal__add_btn.addEventListener("click", (e)=>{
+  let db__meal__modal__meal_name = document.querySelector("#db__meal__modal__meal_name");
+  let db__meal__modal__ingr_name = document.querySelectorAll(".db__meal__modal__ingr_name");
+  let db__meal__modal__ingr_qty = document.querySelectorAll(".db__meal__modal__ingr_qty");
+
+  let ingredientsList = "";
+  //to do: no se que mierda pasa pero cuanod uso el IN me lo lee bien pero tambien me guarda las props, si uso el OF no me puede leer la variable, me 
+  //dice que es undefinded
+  for(let ingredient in db__meal__modal__ingr_name){
+    ingredientsList += `${db__meal__modal__ingr_name[ingredient].innerHTML} --> ${db__meal__modal__ingr_qty[ingredient].innerHTML}`
+  };
+
   calendar_reference.innerHTML += `<div class="calendar__meal_pack">
   <div class="calendar_meal_name">${db__meal__modal__meal_name.value}<img class="button expand_meal" src="img/icon-png24/bx-expand-alt.png"></div>
-  <div class="calendar_meal_ingredients"></div>
-</div>`
+  <div class="calendar_meal_ingredients">${ingredientsList}</div>
+  </div>`
 
   //cierro modal
   db__meal__modal_background.classList.remove('modal_active');
@@ -466,6 +516,9 @@ db__meal__modal__add_btn.addEventListener("click", (e)=>{
   //limpio campo
   db__meal__modal__ingr_name.forEach( (e)=>{e.parentNode.remove()} );
   db__meal__modal__meal_name.value = "";
+
+  //tengo que refrescar eventos a los expand meal
+  setExpandMealBtnFunction();
 
 });
 
@@ -492,15 +545,8 @@ var week = [
   },
 ];
 
-/*tengo que pasar las bases de datos a que sean objetos ya definidos, y que tengan un constructor, cosa de que al momento de agregarlos 
-a la base de datos lo haga mas facil, es decir sigue siendo un array de objetos pero los objetos los tengo que crear desde el new product y new recipe.
-la receta tiene que tener el metodo actualizarTotalPrice (o total price, eso tengo que ver que es lo que me conviene)
-
-
-cada vez que AGREGO un prodcto, receta, o meal, tengo que crear el objeto, y luego cargar el html usando el objeto ya creado, en vez 
-de una variable con el valor de los input (esa variable solo la uso para crear el objeto)
-
-
+/*
+to do:
 crear el objeto day
 crear el objeto week, compuesto por varios objetos day
 crear el objeto calendario, compuesto por varias weeks

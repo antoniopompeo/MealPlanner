@@ -65,7 +65,21 @@
     position: relative;
     border: 2px solid black;
     border-radius: 10px;
+    height: fit-content;
 }
+
+.calendar_meal_ingredients{
+    height: 0px;
+    pointer-events: none;
+    transition: all 0.5 ease;
+}
+
+.calendar_meal_ingredients .active{
+    height: fit-content;
+}
+
+
+
 
 #day_label {
 	position: absolute;
